@@ -1,6 +1,8 @@
 <?php
 
-use App\ProductContext\ProductModel\Infrastructure\Entrypoint\Http\ProductController;
+use App\ProductContext\ProductModel\Infrastructure\Entrypoint\Http\ProductListController;
+use App\ProductContext\ProductModel\Infrastructure\Entrypoint\Http\ProductGetController;
+use App\ProductContext\ProductModel\Infrastructure\Entrypoint\Http\ProductPostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', static function () {
@@ -8,13 +10,13 @@ Route::get('/', static function () {
 });
 
 Route::get('/api/product/{id}',
-    [ProductController::class, 'get']
+    [ProductGetController::class, '__invoke']
 );
 
 Route::get('/api/product',
-    [ProductController::class, 'list']
+    [ProductListController::class, '__invoke']
 );
 
 Route::post('/api/product',
-    [ProductController::class, 'store']
+    [ProductPostController::class, '__invoke']
 );
