@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ProductContext\ProductModel\Infrastructure\Model;
+namespace App\CatalogContext\ProductModule\Infrastructure\Model;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

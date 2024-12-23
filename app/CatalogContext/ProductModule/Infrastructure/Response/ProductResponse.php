@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\ProductContext\ProductModel\Infrastructure\Response;
+namespace App\CatalogContext\ProductModule\Infrastructure\Response;
 
-use App\ProductContext\ProductModel\Domain\Entity\Product;
+use App\CatalogContext\ProductModule\Domain\Entity\Product;
 
 class ProductResponse
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ProductContext\ProductModel\Domain\ValueObject;
+namespace App\CatalogContext\ProductModule\Domain\ValueObject;
 
 use App\SharedContext\SharedModule\Domain\Entity\AbstractUuidValueObject;
 

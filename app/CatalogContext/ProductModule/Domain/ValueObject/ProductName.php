@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\ProductContext\ProductModel\Domain\ValueObject;
+namespace App\CatalogContext\ProductModule\Domain\ValueObject;
 
-use App\ProductContext\ProductModel\Domain\Exception\ProductNameException;
+use App\CatalogContext\ProductModule\Domain\Exception\ProductNameException;
 use App\SharedContext\SharedModule\Domain\Entity\AbstractSimpleValueObject;
 
 /**

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\ProductContext\ProductModel\Domain\Repository;
+namespace App\CatalogContext\ProductModule\Domain\Repository;
 
-use App\ProductContext\ProductModel\Domain\Entity\Product;
-use App\ProductContext\ProductModel\Domain\ValueObject\ProductId;
+use App\CatalogContext\ProductModule\Domain\Entity\Product;
+use App\CatalogContext\ProductModule\Domain\ValueObject\ProductId;
 
 interface ProductRepositoryInterface
 {

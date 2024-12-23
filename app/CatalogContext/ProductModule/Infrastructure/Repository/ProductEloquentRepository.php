@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\ProductContext\ProductModel\Infrastructure\Repository;
+namespace App\CatalogContext\ProductModule\Infrastructure\Repository;
 
-use App\ProductContext\ProductModel\Domain\Entity\Product;
-use App\ProductContext\ProductModel\Domain\Repository\ProductRepositoryInterface;
-use App\ProductContext\ProductModel\Domain\ValueObject\ProductId;
-use App\ProductContext\ProductModel\Domain\ValueObject\ProductImageUrl;
-use App\ProductContext\ProductModel\Domain\ValueObject\ProductName;
-use App\ProductContext\ProductModel\Domain\ValueObject\ProductPrice;
-use App\ProductContext\ProductModel\Domain\ValueObject\ProductUrl;
-use App\ProductContext\ProductModel\Infrastructure\Model\ProductEloquentModel;
+use App\CatalogContext\ProductModule\Domain\Entity\Product;
+use App\CatalogContext\ProductModule\Domain\Repository\ProductRepositoryInterface;
+use App\CatalogContext\ProductModule\Domain\ValueObject\ProductId;
+use App\CatalogContext\ProductModule\Domain\ValueObject\ProductImageUrl;
+use App\CatalogContext\ProductModule\Domain\ValueObject\ProductName;
+use App\CatalogContext\ProductModule\Domain\ValueObject\ProductPrice;
+use App\CatalogContext\ProductModule\Domain\ValueObject\ProductUrl;
+use App\CatalogContext\ProductModule\Infrastructure\Model\ProductEloquentModel;
 
 class ProductEloquentRepository implements ProductRepositoryInterface
 {

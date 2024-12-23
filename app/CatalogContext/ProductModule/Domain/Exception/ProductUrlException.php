@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ProductContext\ProductModel\Domain\Exception;
+namespace App\CatalogContext\ProductModule\Domain\Exception;
 
 use App\SharedContext\SharedModule\Domain\Exception\DomainException;
 

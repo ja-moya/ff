@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\ProductContext\ProductModel\Domain\Entity;
+namespace App\CatalogContext\ProductModule\Domain\Entity;
 
-use App\ProductContext\ProductModel\Domain\ValueObject\ProductId;
-use App\ProductContext\ProductModel\Domain\ValueObject\ProductImageUrl;
-use App\ProductContext\ProductModel\Domain\ValueObject\ProductName;
-use App\ProductContext\ProductModel\Domain\ValueObject\ProductPrice;
-use App\ProductContext\ProductModel\Domain\ValueObject\ProductUrl;
+use App\CatalogContext\ProductModule\Domain\ValueObject\ProductId;
+use App\CatalogContext\ProductModule\Domain\ValueObject\ProductImageUrl;
+use App\CatalogContext\ProductModule\Domain\ValueObject\ProductName;
+use App\CatalogContext\ProductModule\Domain\ValueObject\ProductPrice;
+use App\CatalogContext\ProductModule\Domain\ValueObject\ProductUrl;
 
 class Product
 {

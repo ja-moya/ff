@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\ProductContext\ProductModel\Infrastructure\Entrypoint\Http;
+namespace App\CatalogContext\ProductModule\Infrastructure\Entrypoint\Http;
 
 use App\Http\Controllers\Controller;
-use App\ProductContext\ProductModel\Domain\Entity\Product;
-use App\ProductContext\ProductModel\Domain\Repository\ProductRepositoryInterface;
-use App\ProductContext\ProductModel\Domain\ValueObject\ProductId;
-use App\ProductContext\ProductModel\Domain\ValueObject\ProductImageUrl;
-use App\ProductContext\ProductModel\Domain\ValueObject\ProductName;
-use App\ProductContext\ProductModel\Domain\ValueObject\ProductPrice;
-use App\ProductContext\ProductModel\Domain\ValueObject\ProductUrl;
+use App\CatalogContext\ProductModule\Domain\Entity\Product;
+use App\CatalogContext\ProductModule\Domain\Repository\ProductRepositoryInterface;
+use App\CatalogContext\ProductModule\Domain\ValueObject\ProductId;
+use App\CatalogContext\ProductModule\Domain\ValueObject\ProductImageUrl;
+use App\CatalogContext\ProductModule\Domain\ValueObject\ProductName;
+use App\CatalogContext\ProductModule\Domain\ValueObject\ProductPrice;
+use App\CatalogContext\ProductModule\Domain\ValueObject\ProductUrl;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -51,5 +51,4 @@ class ProductPostController extends Controller
 
         return response()->json(['message' => 'Product saved successfully'], 200);
     }
-
 }
