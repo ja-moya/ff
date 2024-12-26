@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\ProductContext\ProductModel\Domain\Repository\ProductRepositoryInterface;
-use App\ProductContext\ProductModel\Infrastructure\Repository\ProductEloquentRepository;
+use App\CatalogContext\ProductModule\Domain\Repository\ProductRepositoryInterface;
+use App\CatalogContext\ProductModule\Infrastructure\Repository\ProductEloquentRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

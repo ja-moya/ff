@@ -1,8 +1,9 @@
 <?php
 
-use App\ProductContext\ProductModel\Infrastructure\Entrypoint\Http\ProductListController;
-use App\ProductContext\ProductModel\Infrastructure\Entrypoint\Http\ProductGetController;
-use App\ProductContext\ProductModel\Infrastructure\Entrypoint\Http\ProductPostController;
+use App\CatalogContext\ProductModule\Infrastructure\Entrypoint\Http\ProductGetController;
+use App\CatalogContext\ProductModule\Infrastructure\Entrypoint\Http\ProductListController;
+use App\CatalogContext\ProductModule\Infrastructure\Entrypoint\Http\ProductPostController;
+use App\SharedContext\SharedModule\Infrastructure\Entrypoint\Http\SandboxController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', static function () {
@@ -19,4 +20,8 @@ Route::get('/api/product',
 
 Route::post('/api/product',
     [ProductPostController::class, '__invoke']
+);
+
+Route::post('/api/sandbox',
+    [SandboxController::class, '__invoke']
 );
