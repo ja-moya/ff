@@ -15,17 +15,31 @@ use App\CatalogContext\ProductModule\Infrastructure\Model\ProductEloquentModel;
 
 class ProductEloquentRepository implements ProductRepositoryInterface
 {
-    public function save(Product $product): void
+    public function create(Product $product): void
     {
-        ProductEloquentModel::updateOrCreate(
-            ['id' => $product->id()->value()],
+        ProductEloquentModel::create(
             [
+                'id' => $product->id()->value(),
                 'name' => $product->name()->value(),
                 'price' => $product->price()->value(),
                 'image_url' => $product->imageUrl()->value(),
                 'url' => $product->url()->value(),
             ]
         );
+    }
+
+    public function update(Product $product): void
+    {
+        $productModel = ProductEloquentModel::find($product->id()->value());
+
+        if ($productModel) {
+            $productModel->update([
+                'name' => $product->name()->value(),
+                'price' => $product->price()->value(),
+                'image_url' => $product->imageUrl()->value(),
+                'url' => $product->url()->value(),
+            ]);
+        }
     }
 
     public function findById(ProductId $id): ?Product

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\CatalogContext\ProductModule\Infrastructure\Response;
+namespace App\CatalogContext\ProductModule\Application\Response;
 
 use App\CatalogContext\ProductModule\Domain\Entity\Product;
 

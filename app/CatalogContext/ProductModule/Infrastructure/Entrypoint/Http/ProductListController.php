@@ -4,32 +4,26 @@ declare(strict_types=1);
 
 namespace App\CatalogContext\ProductModule\Infrastructure\Entrypoint\Http;
 
-use App\Http\Controllers\Controller;
-use App\CatalogContext\ProductModule\Domain\Entity\Product;
+use App\CatalogContext\ProductModule\Application\Query\ListProductQuery;
+use App\CatalogContext\ProductModule\Application\Query\ListProductQueryHandler;
 use App\CatalogContext\ProductModule\Domain\Repository\ProductRepositoryInterface;
-use App\CatalogContext\ProductModule\Infrastructure\Response\ProductResponse;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 
 class ProductListController extends Controller
 {
-    protected ProductRepositoryInterface $productRepository;
 
-    public function __construct(ProductRepositoryInterface $productRepository)
-    {
-        $this->productRepository = $productRepository;
+    public function __construct(
+        protected ProductRepositoryInterface $productRepository,
+        protected ListProductQueryHandler $listProductQueryHandler
+    ) {
     }
 
     public function __invoke(): JsonResponse
     {
-        $products = $this->productRepository->list();
+        $listProductQuery = new ListProductQuery();
+        $productsData = $this->listProductQueryHandler->handle($listProductQuery);
 
-        return response()->json(
-            array_map(
-                static function (Product $product) {
-                    return ProductResponse::fromProduct($product);
-                },
-                $products
-            )
-        );
+        return response()->json($productsData);
     }
 }

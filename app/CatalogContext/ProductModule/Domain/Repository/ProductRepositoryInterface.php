@@ -9,7 +9,9 @@ use App\CatalogContext\ProductModule\Domain\ValueObject\ProductId;
 
 interface ProductRepositoryInterface
 {
-    public function save(Product $product): void;
+    public function create(Product $product): void;
+
+    public function update(Product $product): void;
 
     public function findById(ProductId $id): ?Product;
 

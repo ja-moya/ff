@@ -29,7 +29,7 @@ class ScraperCarrefourService implements ScraperServiceInterface
             'value' => '005212|4700003|DRIVE|0',
             'path' => '/',
             'domain' => 'www.carrefour.es'
-        ]
+        ] // Example of a cookie may be used in the service
     ];
 
     private BrowserShotPageLoaderService $browserShotPageLoaderService;

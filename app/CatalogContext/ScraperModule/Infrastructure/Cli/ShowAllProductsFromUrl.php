@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\CatalogContext\ScraperModule\Infrastructure\Cli;
 
-use App\CatalogContext\ProductModule\Infrastructure\Response\ProductResponse;
+use App\CatalogContext\ProductModule\Application\Response\ProductResponse;
 use App\CatalogContext\ScraperModule\Domain\Factory\ProductScrapperFactory;
 use App\CatalogContext\ScraperModule\Domain\Service\ProductScraperService;
 use App\CatalogContext\ScraperModule\Infrastructure\Service\ScraperAmazonService;

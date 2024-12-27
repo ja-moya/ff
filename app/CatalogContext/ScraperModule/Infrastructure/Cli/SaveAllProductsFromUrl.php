@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\CatalogContext\ScraperModule\Infrastructure\Cli;
 
 use App\CatalogContext\ProductModule\Domain\Repository\ProductRepositoryInterface;
+use App\CatalogContext\ScraperModule\Domain\Exception\ProductScraperFactoryException;
 use App\CatalogContext\ScraperModule\Domain\Factory\ProductScrapperFactory;
 use App\CatalogContext\ScraperModule\Domain\Service\ProductScraperService;
 use App\CatalogContext\ScraperModule\Infrastructure\Service\ScraperAmazonService;
@@ -17,10 +18,10 @@ class SaveAllProductsFromUrl extends Command
     protected $description = 'Guardar productos desde la URL proporcionada';
 
     private ProductScraperService $productScraperService;
-    private ProductRepositoryInterface $productRepository;
 
-    public function __construct(ProductRepositoryInterface $productRepository)
-    {
+    public function __construct(
+        private readonly ProductRepositoryInterface $productRepository
+    ) {
         parent::__construct();
         $productScraperFactory = new ProductScrapperFactory(
             [
@@ -29,9 +30,11 @@ class SaveAllProductsFromUrl extends Command
             ]
         );
         $this->productScraperService = new ProductScraperService($productScraperFactory);
-        $this->productRepository = $productRepository;
     }
 
+    /**
+     * @throws ProductScraperFactoryException
+     */
     public function handle($url): void
     {
         if (filter_var($url, FILTER_VALIDATE_URL) === false) {
@@ -42,7 +45,7 @@ class SaveAllProductsFromUrl extends Command
         $products = $this->productScraperService->getProducts($url);
 
         foreach ($products as $product) {
-            $this->productRepository->save($product);
+            $this->productRepository->create($product);
         }
     }
 }

@@ -7,6 +7,18 @@ CONTAINER_NAME=app
 build:
 	docker-compose build
 
+prepare:
+	docker-compose exec $(CONTAINER_NAME) composer install
+	docker-compose exec $(CONTAINER_NAME) npm install
+	docker-compose exec $(CONTAINER_NAME) cp /var/www/html/.env.example /var/www/html/.env
+	docker-compose exec $(CONTAINER_NAME) chown -R www-data:www-data /var/www/html/storage
+	docker-compose exec $(CONTAINER_NAME) chmod -R 775 /var/www/html/storage
+	docker-compose exec $(CONTAINER_NAME) touch /var/www/html/database/database.sqlite
+	docker-compose exec $(CONTAINER_NAME) chown -R www-data:www-data /var/www/html/database
+	docker-compose exec $(CONTAINER_NAME) chmod -R 775 /var/www/html/database
+	docker-compose exec $(CONTAINER_NAME) php artisan key:generate
+	docker-compose exec $(CONTAINER_NAME) php artisan migrate
+
 # Comando para arrancar el contenedor en segundo plano
 up:
 	docker-compose up -d
